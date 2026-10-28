@@ -26,6 +26,7 @@
 html {
   scroll-behavior: smooth;
   background: var(--paper);
+  scroll-padding-top: 90px;
 }
 
 body {
@@ -922,7 +923,7 @@ button:focus-visible {
 </style>
 </head>
 <body>
-<div class="brief-shell" contenteditable="true">
+<div class="brief-shell" id="top" contenteditable="true">
   <header class="brief-topbar">
     <div class="brief-logo">
       <div class="brief-logo-mark">R</div>
@@ -951,7 +952,7 @@ button:focus-visible {
     </section>
 
     <nav class="brief-nav" aria-label="ページ内ナビゲーション">
-      <a href="#overview">TOP</a>
+      <a href="#top">TOP</a>
       <a href="#checklist">チェックリスト</a>
       <a href="#alignment">方向性</a>
       <a href="#discussion">協議メモ</a>
