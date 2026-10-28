@@ -320,6 +320,28 @@ button { font: inherit; }
   text-transform: uppercase;
 }
 
+.brief-frame-toolbar {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 16px;
+}
+
+.brief-add-frame {
+  border: 1px solid rgba(37, 53, 73, 0.18);
+  background: var(--navy);
+  color: var(--white);
+  border-radius: 999px;
+  padding: 10px 18px;
+  font-size: .8rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: .2s ease;
+}
+
+.brief-add-frame:hover {
+  background: #1b2d3f;
+}
+
 .brief-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -356,6 +378,31 @@ button { font: inherit; }
   margin: 0;
   color: var(--muted);
   font-size: .95rem;
+}
+
+.brief-frame-item {
+  padding-top: 22px;
+}
+
+.brief-frame-remove {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 28px;
+  height: 28px;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(37, 53, 73, 0.06);
+  color: var(--navy);
+  font-size: 1.1rem;
+  line-height: 1;
+  cursor: pointer;
+  opacity: .8;
+}
+
+.brief-frame-remove:hover {
+  background: rgba(251, 226, 26, 0.25);
+  opacity: 1;
 }
 
 .brief-summary-grid {
@@ -889,7 +936,7 @@ button:focus-visible {
       <div>
         <p class="eyebrow">Direction Alignment</p>
         <h1>店舗の方向性を<br>一枚で共有する</h1>
-        <p>この資料は、店舗コンセプト・見込み顧客・提供価値・運営体制を、関係者で揃えて議論するためのフレームです。チェックリストと方向性の擦り合わせを同時に確認できます。</p>
+        <p>この資料は、店舗コンセプト・見込み顧客・提供価値・運営体制を、関係者で揃えて議論するためのフレームです。チェックリストと方向性の整理を同時に進められます。</p>
         <div class="brief-actions">
           <a class="brief-primary" href="#checklist">チェックリストを見る</a>
           <a class="brief-secondary" href="#alignment">方向性を確認</a>
@@ -916,28 +963,11 @@ button:focus-visible {
         <p>Overview</p>
       </div>
 
-      <div class="brief-grid">
-        <article class="brief-card">
-          <span class="index">01</span>
-          <h3>想定客</h3>
-          <p>誰に、どんな時間帯に、どんな価値を届けたいのかを明確にする。</p>
-        </article>
-        <article class="brief-card">
-          <span class="index">02</span>
-          <h3>価値提案</h3>
-          <p>「ただの食事」ではなく、体験として何を提供するかを整理する。</p>
-        </article>
-        <article class="brief-card">
-          <span class="index">03</span>
-          <h3>空間設計</h3>
-          <p>内装・音・照明・席の構成が、店舗の印象と体験にどう影響するかを定義する。</p>
-        </article>
-        <article class="brief-card">
-          <span class="index">04</span>
-          <h3>運営体制</h3>
-          <p>接客、回転率、スタッフ教育、仕込みに必要なルールを固める。</p>
-        </article>
+      <div class="brief-frame-toolbar">
+        <button type="button" class="brief-add-frame" id="addFrameBtn">＋ フレームを追加</button>
       </div>
+
+      <div class="brief-grid" id="frameGrid"></div>
     </section>
 
     <section class="brief-section" id="checklist">
@@ -1001,275 +1031,79 @@ button:focus-visible {
         <h2>協議メモ</h2>
         <p>Discussion</p>
       </div>
-
       <div class="brief-box">
+        <h3>このページの意図</h3>
         <ul>
-          <li>店舗の価値を「料理」だけでなく、空間・雰囲気・接客で伝えるかどうかを固める。</li>
-          <li>業態の方向性と予算感のバランスを合わせる。</li>
-          <li>オープン後の体験をずっと支える運営設計を前提に、導線と接客の設計を最適化する。</li>
+          <li>関係者が同じ前提で話せるように、方向性を見える化する</li>
+          <li>オーナー・幹部・スタッフが揃って判断できる軸を明示する</li>
+          <li>店の体験と運営の整合を事前に確認する</li>
         </ul>
       </div>
     </section>
   </main>
 </div>
 
-<main class="page" id="app">
-  <header class="hero">
-    <p class="eyebrow" contenteditable="true">30-Day Launch Plan</p>
-    <h1 contenteditable="true">Restaurant<br>Opening Checklist</h1>
-    <p class="subtitle" contenteditable="true">飲食店 物件契約から開店までのチェックリスト</p>
-  </header>
-
-  <div class="toolbar">
-    <div class="save-state"><span class="save-dot"></span><span id="saveMessage">変更はこのブラウザに自動保存されます</span></div>
-    <div class="actions">
-      <button class="action-btn" type="button" id="printButton">印刷する</button>
-      <button class="action-btn" type="button" id="resetButton">初期状態に戻す</button>
-    </div>
-  </div>
-
-  <div class="schedule">
-    <div class="schedule-top">
-      <h2 contenteditable="true">Schedule at a glance</h2>
-      <div class="progress-copy"><strong id="progressCount">0 / 23</strong> タスク完了</div>
-    </div>
-    <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
-    <p class="schedule-note" contenteditable="true">開店日を D-0 とし、30日前から逆算 / Phases overlap and run in parallel</p>
-
-    <div class="phase-row">
-      <div class="phase-name" contenteditable="true">Phase 1 Contract</div>
-      <div class="timeline"><div class="bar navy" style="--start:1;--end:6"></div></div>
-      <div class="phase-days" contenteditable="true">5 days</div>
-    </div>
-    <div class="phase-row">
-      <div class="phase-name" contenteditable="true">Phase 2 Construction</div>
-      <div class="timeline"><div class="bar espresso" style="--start:6;--end:17"></div></div>
-      <div class="phase-days" contenteditable="true">11 days</div>
-    </div>
-    <div class="phase-row">
-      <div class="phase-name" contenteditable="true">Phase 3 Permits</div>
-      <div class="timeline"><div class="bar gold" style="--start:11;--end:20"></div></div>
-      <div class="phase-days" contenteditable="true">9 days</div>
-    </div>
-    <div class="phase-row">
-      <div class="phase-name" contenteditable="true">Phase 4 Staff &amp; Promo</div>
-      <div class="timeline"><div class="bar navy" style="--start:17;--end:27"></div></div>
-      <div class="phase-days" contenteditable="true">10 days</div>
-    </div>
-    <div class="phase-row">
-      <div class="phase-name" contenteditable="true">Phase 5 Final Check</div>
-      <div class="timeline"><div class="bar espresso" style="--start:24;--end:30"></div></div>
-      <div class="phase-days" contenteditable="true">8 days</div>
-    </div>
-    <div class="timeline-axis"><div></div><div><span>D-30</span><span>D-20</span><span>D-10</span><span>D-0 Open</span></div><div></div></div>
-  </div>
-
-  <section class="checklist-section">
-    <div class="section-heading">
-      <p class="phase-label" contenteditable="true">Phase 1</p>
-      <h3 contenteditable="true">Contract &amp;<br>Pre-Construction</h3>
-      <p class="section-ja" contenteditable="true">契約直後〜内装着工前</p>
-      <p class="section-term" contenteditable="true">D-30 – D-26 · 5 days</p>
-    </div>
-    <div>
-      <ul class="task-list">
-        <li class="task"><input type="checkbox"><span class="task-text" contenteditable="true">内装・外装工事の業者選定と詳細見積もりの依頼、工事請負契約の締結</span><span class="task-when" contenteditable="true">D-30<small>契約</small></span><button class="delete-task" type="button" aria-label="タスクを削除">×</button></li>
-        <li class="task"><input type="checkbox"><span class="task-text" contenteditable="true">店舗デザイン、レイアウト、設備配置の最終決定</span><span class="task-when" contenteditable="true">D-29<small>設計</small></span><button class="delete-task" type="button" aria-label="タスクを削除">×</button></li>
-        <li class="task"><input type="checkbox"><span class="task-text" contenteditable="true">電気、ガス、水道、インターネットなどのインフラ契約および引き込み手続</span><span class="task-when" contenteditable="true">D-28<small>共通設備</small></span><button class="delete-task" type="button" aria-label="タスクを削除">×</button></li>
-      </ul>
-      <button class="add-task" type="button">＋ タスクを追加</button>
-    </div>
-  </section>
-
-  <section class="checklist-section">
-    <div class="section-heading">
-      <p class="phase-label" contenteditable="true">Phase 2</p>
-      <h3 contenteditable="true">Construction</h3>
-      <p class="section-ja" contenteditable="true">工事期間中</p>
-      <p class="section-term" contenteditable="true">D-25 – D-15 · 11 days</p>
-    </div>
-    <div>
-      <ul class="task-list">
-        <li class="task"><input type="checkbox"><span class="task-text" contenteditable="true">内装工事の着工および定期的な進捗確認</span><span class="task-when" contenteditable="true">D-25<small>着工</small></span><button class="delete-task" type="button" aria-label="タスクを削除">×</button></li>
-        <li class="task"><input type="checkbox"><span class="task-text" contenteditable="true">食品衛生責任者の資格取得（未取得の場合）</span><span class="task-when" contenteditable="true">D-22<small>資格</small></span><button class="delete-task" type="button" aria-label="タスクを削除">×</button></li>
-        <li class="task"><input type="checkbox"><span class="task-text" contenteditable="true">保健所への飲食店営業許可の事前相談</span><span class="task-when" contenteditable="true">D-21<small>相談</small></span><button class="delete-task" type="button" aria-label="タスクを削除">×</button></li>
-        <li class="task"><input type="checkbox"><span class="task-text" contenteditable="true">消防署への防火対象物使用開始届の提出</span><span class="task-when" contenteditable="true">D-19<small>届出</small></span><button class="delete-task" type="button" aria-label="タスクを削除">×</button></li>
-        <li class="task"><input type="checkbox"><span class="task-text" contenteditable="true">深夜における酒類提供を行う場合の警察署への深夜酒類提供飲食店営業届出</span><span class="task-when" contenteditable="true">D-16<small>届出</small></span><button class="delete-task" type="button" aria-label="タスクを削除">×</button></li>
-      </ul>
-      <button class="add-task" type="button">＋ タスクを追加</button>
-    </div>
-  </section>
-
-  <section class="checklist-section">
-    <div class="section-heading">
-      <p class="phase-label" contenteditable="true">Phase 3</p>
-      <h3 contenteditable="true">Permits &amp;<br>Procurement</h3>
-      <p class="section-ja" contenteditable="true">許認可・調達準備期間</p>
-      <p class="section-term" contenteditable="true">D-20 – D-12 · 9 days</p>
-    </div>
-    <div>
-      <ul class="task-list">
-        <li class="task"><input type="checkbox"><span class="task-text" contenteditable="true">保健所への飲食店営業許可申請書類の提出</span><span class="task-when" contenteditable="true">D-20<small>申請</small></span><button class="delete-task" type="button" aria-label="タスクを削除">×</button></li>
-        <li class="task"><input type="checkbox"><span class="task-text" contenteditable="true">調理器具、食器、厨房機器、テーブルウェア、POSレジ、制服、消耗品の購買</span><span class="task-when" contenteditable="true">D-18<small>発注</small></span><button class="delete-task" type="button" aria-label="タスクを削除">×</button></li>
-        <li class="task"><input type="checkbox"><span class="task-text" contenteditable="true">食材、飲料、酒類の卸業者選定と発注契約</span><span class="task-when" contenteditable="true">D-17<small>仕入れ</small></span><button class="delete-task" type="button" aria-label="タスクを削除">×</button></li>
-        <li class="task"><input type="checkbox"><span class="task-text" contenteditable="true">メニュー内容の確定、原価計算、レシピの固定</span><span class="task-when" contenteditable="true">D-15<small>メニュー</small></span><button class="delete-task" type="button" aria-label="タスクを削除">×</button></li>
-        <li class="task"><input type="checkbox"><span class="task-text" contenteditable="true">火災保険、賠償責任保険などの各種損害保険への加入手続</span><span class="task-when" contenteditable="true">D-13<small>保険</small></span><button class="delete-task" type="button" aria-label="タスクを削除">×</button></li>
-      </ul>
-      <button class="add-task" type="button">＋ タスクを追加</button>
-    </div>
-  </section>
-
-  <section class="checklist-section">
-    <div class="section-heading">
-      <p class="phase-label" contenteditable="true">Phase 4</p>
-      <h3 contenteditable="true">Staffing &amp;<br>Promotion</h3>
-      <p class="section-ja" contenteditable="true">スタッフ採用・販促期間</p>
-      <p class="section-term" contenteditable="true">D-14 – D-5 · 10 days</p>
-    </div>
-    <div>
-      <ul class="task-list">
-        <li class="task"><input type="checkbox"><span class="task-text" contenteditable="true">スタッフの募集、面接、採用手続</span><span class="task-when" contenteditable="true">D-14<small>採用</small></span><button class="delete-task" type="button" aria-label="タスクを削除">×</button></li>
-        <li class="task"><input type="checkbox"><span class="task-text" contenteditable="true">採用スタッフに対する接客マニュアル共有や調理トレーニングの実施</span><span class="task-when" contenteditable="true">D-11<small>教育</small></span><button class="delete-task" type="button" aria-label="タスクを削除">×</button></li>
-        <li class="task"><input type="checkbox"><span class="task-text" contenteditable="true">看板、外観サインの設置完了</span><span class="task-when" contenteditable="true">D-10<small>サイン</small></span><button class="delete-task" type="button" aria-label="タスクを削除">×</button></li>
-        <li class="task"><input type="checkbox"><span class="task-text" contenteditable="true">チラシ、ショップカードの印刷、ホームページやSNSアカウントの開設および情報発信開始</span><span class="task-when" contenteditable="true">D-8<small>告知</small></span><button class="delete-task" type="button" aria-label="タスクを削除">×</button></li>
-      </ul>
-      <button class="add-task" type="button">＋ タスクを追加</button>
-    </div>
-  </section>
-
-  <section class="checklist-section">
-    <div class="section-heading">
-      <p class="phase-label" contenteditable="true">Phase 5</p>
-      <h3 contenteditable="true">Final Check &amp;<br>Pre-Open</h3>
-      <p class="section-ja" contenteditable="true">最終確認・プレオープン期</p>
-      <p class="section-term" contenteditable="true">D-7 – D-0 · 8 days</p>
-    </div>
-    <div>
-      <ul class="task-list">
-        <li class="task"><input type="checkbox"><span class="task-text" contenteditable="true">保健所による現地検査の実施と営業許可書の受領</span><span class="task-when" contenteditable="true">D-7<small>検査</small></span><button class="delete-task" type="button" aria-label="タスクを削除">×</button></li>
-        <li class="task"><input type="checkbox"><span class="task-text" contenteditable="true">消防署による現地検査の実施</span><span class="task-when" contenteditable="true">D-6<small>検査</small></span><button class="delete-task" type="button" aria-label="タスクを削除">×</button></li>
-        <li class="task"><input type="checkbox"><span class="task-text" contenteditable="true">プレオープン（知人や近隣住民を招待したオペレーション確認・リハーサル）</span><span class="task-when" contenteditable="true">D-4<small>試運転</small></span><button class="delete-task" type="button" aria-label="タスクを削除">×</button></li>
-        <li class="task"><input type="checkbox"><span class="task-text" contenteditable="true">プレオープンで得た課題の修正、オペレーションの最終調整</span><span class="task-when" contenteditable="true">D-3<small>調整</small></span><button class="delete-task" type="button" aria-label="タスクを削除">×</button></li>
-        <li class="task"><input type="checkbox"><span class="task-text" contenteditable="true">スタッフのシフト作成および最終確認</span><span class="task-when" contenteditable="true">D-2<small>シフト</small></span><button class="delete-task" type="button" aria-label="タスクを削除">×</button></li>
-        <li class="task"><input type="checkbox"><span class="task-text" contenteditable="true">開店当日を迎える</span><span class="task-when" contenteditable="true">D-0<small>Open</small></span><button class="delete-task" type="button" aria-label="タスクを削除">×</button></li>
-      </ul>
-      <button class="add-task" type="button">＋ タスクを追加</button>
-    </div>
-  </section>
-
-  <p class="footer-note">テキストをクリックして編集できます。進捗と編集内容はこのブラウザに保存されます。</p>
-</main>
-
 <script>
-(() => {
-  const app = document.getElementById("app");
-  const briefShell = document.querySelector(".brief-shell");
-  const storageKey = "restaurant-opening-checklist-v2";
-  const initialContent = app.innerHTML;
-  const briefInitialContent = briefShell.innerHTML;
+  const defaultFrames = [
+    { title: '想定客', text: '誰に、どんな時間帯に、どんな価値を届けたいのかを明確にする。' },
+    { title: '価値提案', text: '「ただの食事」ではなく、体験として何を提供するかを整理する。' },
+    { title: '空間設計', text: '内装・音・照明・席の構成が、店舗の印象と体験にどう影響するかを定義する。' },
+    { title: '運営体制', text: '接客、回転率、スタッフ教育、仕込みに必要なルールを固める。' }
+  ];
 
-  const restoreState = () => {
-    try {
-      const raw = localStorage.getItem(storageKey);
-      if (!raw) return;
+  let frames = [...defaultFrames];
+  const frameGrid = document.getElementById('frameGrid');
+  const addFrameBtn = document.getElementById('addFrameBtn');
 
-      try {
-        const parsed = JSON.parse(raw);
-        if (parsed && typeof parsed === "object") {
-          if (parsed.brief) briefShell.innerHTML = parsed.brief;
-          if (parsed.checklist) app.innerHTML = parsed.checklist;
+  function renderFrames() {
+    frameGrid.innerHTML = '';
+
+    frames.forEach((frame, index) => {
+      const article = document.createElement('article');
+      article.className = 'brief-card brief-frame-item';
+
+      const removeButton = document.createElement('button');
+      removeButton.type = 'button';
+      removeButton.className = 'brief-frame-remove';
+      removeButton.setAttribute('aria-label', `${frame.title}を削除`);
+      removeButton.textContent = '×';
+      removeButton.addEventListener('click', () => {
+        if (frames.length <= 1) {
+          alert('最低でも1つのフレームは必要です。');
           return;
         }
-      } catch (error) {
-        console.warn("保存データの形式が旧形式のため、そのまま適用します。", error);
-      }
+        frames.splice(index, 1);
+        renderFrames();
+      });
 
-      app.innerHTML = raw;
-    } catch (error) {
-      console.warn("保存データを読み込めませんでした。", error);
-    }
-  };
+      const indexMark = document.createElement('span');
+      indexMark.className = 'index';
+      indexMark.textContent = String(index + 1).padStart(2, '0');
 
-  restoreState();
+      const title = document.createElement('h3');
+      title.textContent = frame.title;
 
-  const save = () => {
-    try {
-      const payload = {
-        brief: briefShell.innerHTML,
-        checklist: app.innerHTML
-      };
-      localStorage.setItem(storageKey, JSON.stringify(payload));
-      const message = document.getElementById("saveMessage");
-      if (message) message.textContent = "変更を保存しました";
-    } catch (error) {
-      console.warn("変更を保存できませんでした。", error);
-    }
-    updateProgress();
-  };
+      const body = document.createElement('p');
+      body.textContent = frame.text;
 
-  const updateProgress = () => {
-    const boxes = [...app.querySelectorAll('.task input[type="checkbox"]')];
-    const done = boxes.filter(box => box.checked).length;
-    const count = document.getElementById("progressCount");
-    const fill = document.getElementById("progressFill");
+      article.appendChild(removeButton);
+      article.appendChild(indexMark);
+      article.appendChild(title);
+      article.appendChild(body);
+      frameGrid.appendChild(article);
+    });
+  }
 
-    if (count) count.textContent = `${done} / ${boxes.length}`;
-    if (fill) fill.style.width = boxes.length ? `${done / boxes.length * 100}%` : "0%";
-  };
-
-  briefShell.addEventListener("input", save);
-  briefShell.addEventListener("change", save);
-
-  app.addEventListener("input", event => {
-    if (event.target.isContentEditable) save();
+  addFrameBtn.addEventListener('click', () => {
+    const nextIndex = frames.length + 1;
+    frames.push({
+      title: `新しい枠 ${nextIndex}`,
+      text: 'ここに新しいフレームの説明を入力できます。'
+    });
+    renderFrames();
   });
 
-  app.addEventListener("change", event => {
-    if (event.target.matches('input[type="checkbox"]')) save();
-  });
-
-  app.addEventListener("click", event => {
-    const addButton = event.target.closest(".add-task");
-    if (addButton) {
-      const list = addButton.previousElementSibling;
-      const item = document.createElement("li");
-      item.className = "task";
-      item.innerHTML = `
-        <input type="checkbox">
-        <span class="task-text" contenteditable="true">新しいタスクを入力</span>
-        <span class="task-when" contenteditable="true">日程を入力<small>期間</small></span>
-        <button class="delete-task" type="button" aria-label="タスクを削除">×</button>
-      `;
-      list.appendChild(item);
-      save();
-      item.querySelector(".task-text").focus();
-      return;
-    }
-
-    const deleteButton = event.target.closest(".delete-task");
-    if (deleteButton) {
-      deleteButton.closest(".task").remove();
-      save();
-      return;
-    }
-
-    if (event.target.closest("#printButton")) {
-      window.print();
-      return;
-    }
-
-    if (event.target.closest("#resetButton")) {
-      if (confirm("チェック状態と編集内容を初期状態に戻します。よろしいですか？")) {
-        localStorage.removeItem(storageKey);
-        briefShell.innerHTML = briefInitialContent;
-        app.innerHTML = initialContent;
-        updateProgress();
-      }
-    }
-  });
-
-  updateProgress();
-})();
+  renderFrames();
 </script>
 </body>
 </html>
