@@ -11,11 +11,11 @@
 :root {
   --navy: #253549;
   --espresso: #38241D;
-  --mimosa: #FAD02C;
-  --paper: #F6F3EC;
-  --white: #FFFEFB;
-  --muted: #827B70;
-  --line: #E7E1D5;
+  --mimosa: #FBE21A;
+  --paper: #F7E8A3;
+  --white: #FFFDF7;
+  --muted: #5A483C;
+  --line: #E8D6A5;
   --serif: "Cormorant Garamond", "Shippori Mincho", "Yu Mincho", serif;
   --mincho: "Shippori Mincho", "Yu Mincho", serif;
   --sans: "Noto Sans JP", "Yu Gothic", sans-serif;
@@ -32,7 +32,7 @@ body {
   margin: 0;
   color: var(--espresso);
   background:
-    radial-gradient(ellipse at 85% 0%, rgba(250, 208, 44, .10), transparent 32rem),
+    radial-gradient(ellipse at 85% 0%, rgba(251, 226, 26, .22), transparent 32rem),
     var(--paper);
   font-family: var(--sans);
   font-size: 15px;
@@ -65,9 +65,9 @@ button { font: inherit; }
   height: 250px;
   right: -80px;
   top: -100px;
-  border: 1px solid rgba(250, 208, 44, .35);
+  border: 1px solid rgba(251, 226, 26, .35);
   border-radius: 50%;
-  box-shadow: 0 0 0 22px rgba(250, 208, 44, .035), 0 0 0 48px rgba(250, 208, 44, .025);
+  box-shadow: 0 0 0 22px rgba(251, 226, 26, .035), 0 0 0 48px rgba(251, 226, 26, .025);
   pointer-events: none;
 }
 
@@ -422,7 +422,7 @@ button:focus-visible {
 .add-task:hover { text-decoration: underline; }
 
 [contenteditable="true"]:focus {
-  background: rgba(250, 208, 44, .12);
+  background: rgba(251, 226, 26, .12);
   outline: 1px dashed rgba(141, 113, 0, .45);
   outline-offset: 2px;
 }
@@ -540,9 +540,9 @@ button:focus-visible {
     </div>
     <div>
       <ul class="task-list">
-        <li class="task"><input type="checkbox"><span class="task-text" contenteditable="true">内装・外装工事の業者選定と詳細見積もりの依頼、工事請負契約の締結</span><span class="task-when" contenteditable="true">D-30 – D-28<small>3 days</small></span><button class="delete-task" type="button" aria-label="タスクを削除">×</button></li>
-        <li class="task"><input type="checkbox"><span class="task-text" contenteditable="true">店舗デザイン、レイアウト、設備配置の最終決定</span><span class="task-when" contenteditable="true">D-28 – D-27<small>2 days</small></span><button class="delete-task" type="button" aria-label="タスクを削除">×</button></li>
-        <li class="task"><input type="checkbox"><span class="task-text" contenteditable="true">電気、ガス、水道、インターネットなどのインフラ契約および引き込み手続の開始</span><span class="task-when" contenteditable="true">D-30 – D-26<small>5 days</small></span><button class="delete-task" type="button" aria-label="タスクを削除">×</button></li>
+        <li class="task"><input type="checkbox"><span class="task-text" contenteditable="true">内装・外装工事の業者選定と詳細見積もりの依頼、工事請負契約の締結</span><span class="task-when" contenteditable="true">D-30<small>契約</small></span><button class="delete-task" type="button" aria-label="タスクを削除">×</button></li>
+        <li class="task"><input type="checkbox"><span class="task-text" contenteditable="true">店舗デザイン、レイアウト、設備配置の最終決定</span><span class="task-when" contenteditable="true">D-29<small>設計</small></span><button class="delete-task" type="button" aria-label="タスクを削除">×</button></li>
+        <li class="task"><input type="checkbox"><span class="task-text" contenteditable="true">電気、ガス、水道、インターネットなどのインフラ契約および引き込み手続</span><span class="task-when" contenteditable="true">D-28<small>共通設備</small></span><button class="delete-task" type="button" aria-label="タスクを削除">×</button></li>
       </ul>
       <button class="add-task" type="button">＋ タスクを追加</button>
     </div>
@@ -557,11 +557,11 @@ button:focus-visible {
     </div>
     <div>
       <ul class="task-list">
-        <li class="task"><input type="checkbox"><span class="task-text" contenteditable="true">内装工事の着工および定期的な進捗確認</span><span class="task-when" contenteditable="true">D-25 – D-15<small>11 days</small></span><button class="delete-task" type="button" aria-label="タスクを削除">×</button></li>
-        <li class="task"><input type="checkbox"><span class="task-text" contenteditable="true">食品衛生責任者の資格取得（未取得の場合）</span><span class="task-when" contenteditable="true">D-25<small>1 day</small></span><button class="delete-task" type="button" aria-label="タスクを削除">×</button></li>
-        <li class="task"><input type="checkbox"><span class="task-text" contenteditable="true">保健所への飲食店営業許可の事前相談</span><span class="task-when" contenteditable="true">D-24<small>1 day</small></span><button class="delete-task" type="button" aria-label="タスクを削除">×</button></li>
-        <li class="task"><input type="checkbox"><span class="task-text" contenteditable="true">消防署への防火対象物使用開始届の提出</span><span class="task-when" contenteditable="true">D-18<small>1 day</small></span><button class="delete-task" type="button" aria-label="タスクを削除">×</button></li>
-        <li class="task"><input type="checkbox"><span class="task-text" contenteditable="true">深夜における酒類提供を行う場合の警察署への深夜酒類提供飲食店営業届出</span><span class="task-when" contenteditable="true">D-17<small>1 day</small></span><button class="delete-task" type="button" aria-label="タスクを削除">×</button></li>
+        <li class="task"><input type="checkbox"><span class="task-text" contenteditable="true">内装工事の着工および定期的な進捗確認</span><span class="task-when" contenteditable="true">D-25<small>着工</small></span><button class="delete-task" type="button" aria-label="タスクを削除">×</button></li>
+        <li class="task"><input type="checkbox"><span class="task-text" contenteditable="true">食品衛生責任者の資格取得（未取得の場合）</span><span class="task-when" contenteditable="true">D-22<small>資格</small></span><button class="delete-task" type="button" aria-label="タスクを削除">×</button></li>
+        <li class="task"><input type="checkbox"><span class="task-text" contenteditable="true">保健所への飲食店営業許可の事前相談</span><span class="task-when" contenteditable="true">D-21<small>相談</small></span><button class="delete-task" type="button" aria-label="タスクを削除">×</button></li>
+        <li class="task"><input type="checkbox"><span class="task-text" contenteditable="true">消防署への防火対象物使用開始届の提出</span><span class="task-when" contenteditable="true">D-19<small>届出</small></span><button class="delete-task" type="button" aria-label="タスクを削除">×</button></li>
+        <li class="task"><input type="checkbox"><span class="task-text" contenteditable="true">深夜における酒類提供を行う場合の警察署への深夜酒類提供飲食店営業届出</span><span class="task-when" contenteditable="true">D-16<small>届出</small></span><button class="delete-task" type="button" aria-label="タスクを削除">×</button></li>
       </ul>
       <button class="add-task" type="button">＋ タスクを追加</button>
     </div>
@@ -576,11 +576,11 @@ button:focus-visible {
     </div>
     <div>
       <ul class="task-list">
-        <li class="task"><input type="checkbox"><span class="task-text" contenteditable="true">保健所への飲食店営業許可申請書類の提出</span><span class="task-when" contenteditable="true">D-14<small>1 day</small></span><button class="delete-task" type="button" aria-label="タスクを削除">×</button></li>
-        <li class="task"><input type="checkbox"><span class="task-text" contenteditable="true">調理器具、食器、厨房機器、テーブルウェア、POSレジ、制服、消耗品の購入</span><span class="task-when" contenteditable="true">D-20 – D-12<small>9 days</small></span><button class="delete-task" type="button" aria-label="タスクを削除">×</button></li>
-        <li class="task"><input type="checkbox"><span class="task-text" contenteditable="true">食材、飲料、酒類の卸業者選定と発注契約</span><span class="task-when" contenteditable="true">D-20 – D-15<small>6 days</small></span><button class="delete-task" type="button" aria-label="タスクを削除">×</button></li>
-        <li class="task"><input type="checkbox"><span class="task-text" contenteditable="true">メニュー内容の確定、原価計算、レシピの固定</span><span class="task-when" contenteditable="true">D-20 – D-14<small>7 days</small></span><button class="delete-task" type="button" aria-label="タスクを削除">×</button></li>
-        <li class="task"><input type="checkbox"><span class="task-text" contenteditable="true">火災保険、賠償責任保険などの各種損害保険への加入手続</span><span class="task-when" contenteditable="true">D-14 – D-12<small>3 days</small></span><button class="delete-task" type="button" aria-label="タスクを削除">×</button></li>
+        <li class="task"><input type="checkbox"><span class="task-text" contenteditable="true">保健所への飲食店営業許可申請書類の提出</span><span class="task-when" contenteditable="true">D-20<small>申請</small></span><button class="delete-task" type="button" aria-label="タスクを削除">×</button></li>
+        <li class="task"><input type="checkbox"><span class="task-text" contenteditable="true">調理器具、食器、厨房機器、テーブルウェア、POSレジ、制服、消耗品の購買</span><span class="task-when" contenteditable="true">D-18<small>発注</small></span><button class="delete-task" type="button" aria-label="タスクを削除">×</button></li>
+        <li class="task"><input type="checkbox"><span class="task-text" contenteditable="true">食材、飲料、酒類の卸業者選定と発注契約</span><span class="task-when" contenteditable="true">D-17<small>仕入れ</small></span><button class="delete-task" type="button" aria-label="タスクを削除">×</button></li>
+        <li class="task"><input type="checkbox"><span class="task-text" contenteditable="true">メニュー内容の確定、原価計算、レシピの固定</span><span class="task-when" contenteditable="true">D-15<small>メニュー</small></span><button class="delete-task" type="button" aria-label="タスクを削除">×</button></li>
+        <li class="task"><input type="checkbox"><span class="task-text" contenteditable="true">火災保険、賠償責任保険などの各種損害保険への加入手続</span><span class="task-when" contenteditable="true">D-13<small>保険</small></span><button class="delete-task" type="button" aria-label="タスクを削除">×</button></li>
       </ul>
       <button class="add-task" type="button">＋ タスクを追加</button>
     </div>
@@ -595,10 +595,10 @@ button:focus-visible {
     </div>
     <div>
       <ul class="task-list">
-        <li class="task"><input type="checkbox"><span class="task-text" contenteditable="true">スタッフの募集、面接、採用手続</span><span class="task-when" contenteditable="true">D-14 – D-8<small>7 days</small></span><button class="delete-task" type="button" aria-label="タスクを削除">×</button></li>
-        <li class="task"><input type="checkbox"><span class="task-text" contenteditable="true">採用スタッフに対する接客マニュアル共有や調理トレーニングの実施</span><span class="task-when" contenteditable="true">D-10 – D-5<small>6 days</small></span><button class="delete-task" type="button" aria-label="タスクを削除">×</button></li>
-        <li class="task"><input type="checkbox"><span class="task-text" contenteditable="true">看板、外観サインの設置完了</span><span class="task-when" contenteditable="true">D-14 – D-9<small>6 days</small></span><button class="delete-task" type="button" aria-label="タスクを削除">×</button></li>
-        <li class="task"><input type="checkbox"><span class="task-text" contenteditable="true">チラシ、ショップカードの印刷、ホームページやSNSアカウントの開設および告知開始</span><span class="task-when" contenteditable="true">D-14 – D-5<small>10 days</small></span><button class="delete-task" type="button" aria-label="タスクを削除">×</button></li>
+        <li class="task"><input type="checkbox"><span class="task-text" contenteditable="true">スタッフの募集、面接、採用手続</span><span class="task-when" contenteditable="true">D-14<small>採用</small></span><button class="delete-task" type="button" aria-label="タスクを削除">×</button></li>
+        <li class="task"><input type="checkbox"><span class="task-text" contenteditable="true">採用スタッフに対する接客マニュアル共有や調理トレーニングの実施</span><span class="task-when" contenteditable="true">D-11<small>教育</small></span><button class="delete-task" type="button" aria-label="タスクを削除">×</button></li>
+        <li class="task"><input type="checkbox"><span class="task-text" contenteditable="true">看板、外観サインの設置完了</span><span class="task-when" contenteditable="true">D-10<small>サイン</small></span><button class="delete-task" type="button" aria-label="タスクを削除">×</button></li>
+        <li class="task"><input type="checkbox"><span class="task-text" contenteditable="true">チラシ、ショップカードの印刷、ホームページやSNSアカウントの開設および情報発信開始</span><span class="task-when" contenteditable="true">D-8<small>告知</small></span><button class="delete-task" type="button" aria-label="タスクを削除">×</button></li>
       </ul>
       <button class="add-task" type="button">＋ タスクを追加</button>
     </div>
@@ -613,11 +613,11 @@ button:focus-visible {
     </div>
     <div>
       <ul class="task-list">
-        <li class="task"><input type="checkbox"><span class="task-text" contenteditable="true">保健所による現地検査の実施と営業許可書の受領</span><span class="task-when" contenteditable="true">D-7 – D-6<small>2 days</small></span><button class="delete-task" type="button" aria-label="タスクを削除">×</button></li>
-        <li class="task"><input type="checkbox"><span class="task-text" contenteditable="true">消防署による現地検査の実施</span><span class="task-when" contenteditable="true">D-6<small>1 day</small></span><button class="delete-task" type="button" aria-label="タスクを削除">×</button></li>
-        <li class="task"><input type="checkbox"><span class="task-text" contenteditable="true">プレオープン（知人や近隣住民を招待したオペレーション確認・リハーサル営業）の実施</span><span class="task-when" contenteditable="true">D-4 – D-3<small>2 days</small></span><button class="delete-task" type="button" aria-label="タスクを削除">×</button></li>
-        <li class="task"><input type="checkbox"><span class="task-text" contenteditable="true">プレオープンで得た課題の修正、オペレーションの最終調整</span><span class="task-when" contenteditable="true">D-3 – D-1<small>3 days</small></span><button class="delete-task" type="button" aria-label="タスクを削除">×</button></li>
-        <li class="task"><input type="checkbox"><span class="task-text" contenteditable="true">スタッフのシフト作成および最終確認</span><span class="task-when" contenteditable="true">D-4 – D-1<small>4 days</small></span><button class="delete-task" type="button" aria-label="タスクを削除">×</button></li>
+        <li class="task"><input type="checkbox"><span class="task-text" contenteditable="true">保健所による現地検査の実施と営業許可書の受領</span><span class="task-when" contenteditable="true">D-7<small>検査</small></span><button class="delete-task" type="button" aria-label="タスクを削除">×</button></li>
+        <li class="task"><input type="checkbox"><span class="task-text" contenteditable="true">消防署による現地検査の実施</span><span class="task-when" contenteditable="true">D-6<small>検査</small></span><button class="delete-task" type="button" aria-label="タスクを削除">×</button></li>
+        <li class="task"><input type="checkbox"><span class="task-text" contenteditable="true">プレオープン（知人や近隣住民を招待したオペレーション確認・リハーサル）</span><span class="task-when" contenteditable="true">D-4<small>試運転</small></span><button class="delete-task" type="button" aria-label="タスクを削除">×</button></li>
+        <li class="task"><input type="checkbox"><span class="task-text" contenteditable="true">プレオープンで得た課題の修正、オペレーションの最終調整</span><span class="task-when" contenteditable="true">D-3<small>調整</small></span><button class="delete-task" type="button" aria-label="タスクを削除">×</button></li>
+        <li class="task"><input type="checkbox"><span class="task-text" contenteditable="true">スタッフのシフト作成および最終確認</span><span class="task-when" contenteditable="true">D-2<small>シフト</small></span><button class="delete-task" type="button" aria-label="タスクを削除">×</button></li>
         <li class="task"><input type="checkbox"><span class="task-text" contenteditable="true">開店当日を迎える</span><span class="task-when" contenteditable="true">D-0<small>Open</small></span><button class="delete-task" type="button" aria-label="タスクを削除">×</button></li>
       </ul>
       <button class="add-task" type="button">＋ タスクを追加</button>
