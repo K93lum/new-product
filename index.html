@@ -807,7 +807,7 @@ button:focus-visible {
 </style>
 </head>
 <body>
-<div class="brief-shell">
+<div class="brief-shell" contenteditable="true">
   <header class="brief-topbar">
     <div class="brief-logo">
       <div class="brief-logo-mark">R</div>
@@ -1095,19 +1095,42 @@ button:focus-visible {
 <script>
 (() => {
   const app = document.getElementById("app");
+  const briefShell = document.querySelector(".brief-shell");
   const storageKey = "restaurant-opening-checklist-v2";
   const initialContent = app.innerHTML;
+  const briefInitialContent = briefShell.innerHTML;
 
-  try {
-    const savedContent = localStorage.getItem(storageKey);
-    if (savedContent) app.innerHTML = savedContent;
-  } catch (error) {
-    console.warn("保存データを読み込めませんでした。", error);
-  }
+  const restoreState = () => {
+    try {
+      const raw = localStorage.getItem(storageKey);
+      if (!raw) return;
+
+      try {
+        const parsed = JSON.parse(raw);
+        if (parsed && typeof parsed === "object") {
+          if (parsed.brief) briefShell.innerHTML = parsed.brief;
+          if (parsed.checklist) app.innerHTML = parsed.checklist;
+          return;
+        }
+      } catch (error) {
+        console.warn("保存データの形式が旧形式のため、そのまま適用します。", error);
+      }
+
+      app.innerHTML = raw;
+    } catch (error) {
+      console.warn("保存データを読み込めませんでした。", error);
+    }
+  };
+
+  restoreState();
 
   const save = () => {
     try {
-      localStorage.setItem(storageKey, app.innerHTML);
+      const payload = {
+        brief: briefShell.innerHTML,
+        checklist: app.innerHTML
+      };
+      localStorage.setItem(storageKey, JSON.stringify(payload));
       const message = document.getElementById("saveMessage");
       if (message) message.textContent = "変更を保存しました";
     } catch (error) {
@@ -1125,6 +1148,9 @@ button:focus-visible {
     if (count) count.textContent = `${done} / ${boxes.length}`;
     if (fill) fill.style.width = boxes.length ? `${done / boxes.length * 100}%` : "0%";
   };
+
+  briefShell.addEventListener("input", save);
+  briefShell.addEventListener("change", save);
 
   app.addEventListener("input", event => {
     if (event.target.isContentEditable) save();
@@ -1167,6 +1193,7 @@ button:focus-visible {
     if (event.target.closest("#resetButton")) {
       if (confirm("チェック状態と編集内容を初期状態に戻します。よろしいですか？")) {
         localStorage.removeItem(storageKey);
+        briefShell.innerHTML = briefInitialContent;
         app.innerHTML = initialContent;
         updateProgress();
       }
