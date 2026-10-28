@@ -42,6 +42,310 @@ body {
 
 button { font: inherit; }
 
+.brief-shell {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 26px 20px 40px;
+}
+
+.brief-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 18px;
+  margin-bottom: 20px;
+  background: rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(37, 53, 73, 0.12);
+  border-radius: 18px;
+  backdrop-filter: blur(8px);
+}
+
+.brief-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  color: var(--navy);
+  text-transform: uppercase;
+  font-size: .75rem;
+}
+
+.brief-logo-mark {
+  width: 30px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  color: var(--navy);
+  background: var(--mimosa);
+  border-radius: 10px;
+  font-family: var(--serif);
+  font-size: 1.2rem;
+}
+
+.brief-topbar .brief-badge {
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: var(--navy);
+  color: var(--white);
+  font-size: .72rem;
+  letter-spacing: .06em;
+}
+
+.brief-page {
+  display: grid;
+  gap: 22px;
+}
+
+.brief-hero {
+  display: grid;
+  grid-template-columns: 1.4fr .9fr;
+  gap: 20px;
+  padding: clamp(26px, 4vw, 42px);
+  background: linear-gradient(135deg, rgba(255,255,255,0.42), rgba(255,255,255,0.18));
+  border: 1px solid rgba(37, 53, 73, 0.12);
+  border-radius: 26px;
+  box-shadow: 0 22px 50px rgba(37, 53, 73, 0.08);
+}
+
+.eyebrow {
+  margin: 0 0 14px;
+  color: var(--navy);
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  font-style: italic;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.brief-hero h1 {
+  margin: 0;
+  color: var(--navy);
+  font-family: var(--serif);
+  font-size: clamp(2.4rem, 5vw, 4.2rem);
+  line-height: .96;
+  letter-spacing: -.05em;
+}
+
+.brief-hero p {
+  margin: 18px 0 0;
+  color: var(--muted);
+  font-size: 1rem;
+}
+
+.brief-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 26px;
+}
+
+.brief-primary,
+.brief-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0 20px;
+  border-radius: 999px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: .2s ease;
+}
+
+.brief-primary {
+  color: var(--navy);
+  background: var(--mimosa);
+  box-shadow: 0 10px 24px rgba(251, 226, 26, 0.28);
+}
+
+.brief-secondary {
+  color: var(--navy);
+  background: rgba(255,255,255,0.4);
+  border: 1px solid rgba(37, 53, 73, 0.15);
+}
+
+.brief-panel {
+  display: grid;
+  gap: 12px;
+  align-content: center;
+  padding: 22px;
+  background: rgba(37, 53, 73, 0.94);
+  border-radius: 20px;
+  color: var(--white);
+}
+
+.brief-panel .mini-label {
+  margin: 0;
+  color: rgba(255,255,255,0.72);
+  font-size: .7rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.brief-panel .mini-stat {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 4vw, 2.9rem);
+  line-height: 1.05;
+  color: var(--mimosa);
+}
+
+.brief-panel .mini-copy {
+  margin: 0;
+  color: rgba(255,255,255,0.8);
+  font-size: .9rem;
+  line-height: 1.7;
+}
+
+.brief-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 8px;
+  background: rgba(255,255,255,0.34);
+  border: 1px solid rgba(37, 53, 73, 0.12);
+  border-radius: 999px;
+}
+
+.brief-nav a {
+  padding: 9px 16px;
+  border-radius: 999px;
+  color: var(--navy);
+  font-size: .8rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.brief-nav a:hover {
+  background: rgba(255,255,255,0.5);
+}
+
+.brief-section {
+  padding: clamp(22px, 3vw, 30px);
+  background: rgba(255,255,255,0.42);
+  border: 1px solid rgba(37, 53, 73, 0.12);
+  border-radius: 24px;
+}
+
+.brief-section-header {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.brief-section-header h2 {
+  margin: 0;
+  color: var(--navy);
+  font-family: var(--serif);
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  line-height: 1.1;
+}
+
+.brief-section-header p {
+  margin: 0;
+  color: var(--muted);
+  font-size: .8rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.brief-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.brief-card {
+  padding: 20px 18px;
+  background: rgba(255,255,255,0.7);
+  border: 1px solid rgba(37, 53, 73, 0.08);
+  border-radius: 18px;
+}
+
+.brief-card .index {
+  display: inline-block;
+  margin-bottom: 10px;
+  padding: 5px 8px;
+  border-radius: 999px;
+  background: rgba(251, 226, 26, 0.18);
+  color: var(--navy);
+  font-size: .7rem;
+  font-weight: 700;
+  letter-spacing: .07em;
+}
+
+.brief-card h3 {
+  margin: 0 0 8px;
+  color: var(--navy);
+  font-family: var(--serif);
+  font-size: 1.6rem;
+}
+
+.brief-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: .95rem;
+}
+
+.brief-summary-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr 1fr;
+  gap: 16px;
+}
+
+.brief-box {
+  padding: 20px 18px;
+  border-radius: 18px;
+  background: rgba(255,255,255,0.75);
+  border: 1px solid rgba(37, 53, 73, 0.08);
+}
+
+.brief-box h3 {
+  margin: 0 0 12px;
+  color: var(--navy);
+  font-family: var(--serif);
+  font-size: 1.65rem;
+}
+
+.brief-box ul {
+  margin: 0;
+  padding-left: 18px;
+  color: var(--muted);
+}
+
+.brief-box li + li {
+  margin-top: 8px;
+}
+
+.brief-matrix {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.brief-matrix .matrix-box {
+  padding: 18px;
+  border-radius: 16px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.82), rgba(255,255,255,0.58));
+  border: 1px solid rgba(37, 53, 73, 0.08);
+}
+
+.brief-matrix h4 {
+  margin: 0 0 10px;
+  color: var(--navy);
+  font-family: var(--serif);
+  font-size: 1.5rem;
+}
+
+.brief-matrix p {
+  margin: 0;
+  color: var(--muted);
+  font-size: .92rem;
+}
+
 .page {
   width: min(100% - 40px, 1040px);
   margin: 0 auto;
@@ -65,9 +369,9 @@ button { font: inherit; }
   height: 250px;
   right: -80px;
   top: -100px;
-  border: 1px solid rgba(251, 226, 26, .35);
+  border: 1px solid rgba(250, 208, 44, .35);
   border-radius: 50%;
-  box-shadow: 0 0 0 22px rgba(251, 226, 26, .035), 0 0 0 48px rgba(251, 226, 26, .025);
+  box-shadow: 0 0 0 22px rgba(250, 208, 44, .035), 0 0 0 48px rgba(250, 208, 44, .025);
   pointer-events: none;
 }
 
@@ -435,7 +739,30 @@ button:focus-visible {
   letter-spacing: .03em;
 }
 
+@media (max-width: 1000px) {
+  .brief-hero,
+  .brief-summary-grid,
+  .brief-grid,
+  .brief-matrix {
+    grid-template-columns: 1fr 1fr;
+  }
+  .brief-hero {
+    grid-template-columns: 1fr;
+  }
+}
+
 @media (max-width: 760px) {
+  .brief-shell { padding: 16px 14px 20px; }
+  .brief-topbar,
+  .brief-section-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .brief-grid,
+  .brief-summary-grid,
+  .brief-matrix {
+    grid-template-columns: 1fr;
+  }
   .page { width: min(100% - 28px, 600px); padding-top: 20px; }
   .hero { padding: 34px 26px; }
   .toolbar { margin: 16px 0 32px; }
@@ -480,6 +807,144 @@ button:focus-visible {
 </style>
 </head>
 <body>
+<div class="brief-shell">
+  <header class="brief-topbar">
+    <div class="brief-logo">
+      <div class="brief-logo-mark">R</div>
+      <span>Restaurant Brief</span>
+    </div>
+    <div class="brief-badge">店舗立ち上げ資料</div>
+  </header>
+
+  <main class="brief-page">
+    <section class="brief-hero">
+      <div>
+        <p class="eyebrow">Direction Alignment</p>
+        <h1>店舗の方向性を<br>一枚で共有する</h1>
+        <p>この資料は、店舗コンセプト・見込み顧客・提供価値・運営体制を、関係者で揃えて議論するためのフレームです。チェックリストと方向性の擦り合わせを同時に確認できます。</p>
+        <div class="brief-actions">
+          <a class="brief-primary" href="#checklist">チェックリストを見る</a>
+          <a class="brief-secondary" href="#alignment">方向性を確認</a>
+        </div>
+      </div>
+
+      <aside class="brief-panel">
+        <p class="mini-label">現在の整理ポイント</p>
+        <div class="mini-stat">5軸</div>
+        <p class="mini-copy">概念整理 / SKU設計 / 接客 / 立地 / オペレーションを揃えながら、店舗の訴求と体験の一貫性を整えます。</p>
+      </aside>
+    </section>
+
+    <nav class="brief-nav" aria-label="ページ内ナビゲーション">
+      <a href="#overview">TOP</a>
+      <a href="#checklist">チェックリスト</a>
+      <a href="#alignment">方向性</a>
+      <a href="#discussion">協議メモ</a>
+    </nav>
+
+    <section class="brief-section" id="overview">
+      <div class="brief-section-header">
+        <h2>店舗の方向性</h2>
+        <p>Overview</p>
+      </div>
+
+      <div class="brief-grid">
+        <article class="brief-card">
+          <span class="index">01</span>
+          <h3>想定客</h3>
+          <p>誰に、どんな時間帯に、どんな価値を届けたいのかを明確にする。</p>
+        </article>
+        <article class="brief-card">
+          <span class="index">02</span>
+          <h3>価値提案</h3>
+          <p>「ただの食事」ではなく、体験として何を提供するかを整理する。</p>
+        </article>
+        <article class="brief-card">
+          <span class="index">03</span>
+          <h3>空間設計</h3>
+          <p>内装・音・照明・席の構成が、店舗の印象と体験にどう影響するかを定義する。</p>
+        </article>
+        <article class="brief-card">
+          <span class="index">04</span>
+          <h3>運営体制</h3>
+          <p>接客、回転率、スタッフ教育、仕込みに必要なルールを固める。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="brief-section" id="checklist">
+      <div class="brief-section-header">
+        <h2>チェックリスト</h2>
+        <p>Checklist</p>
+      </div>
+
+      <div class="brief-summary-grid">
+        <div class="brief-box">
+          <h3>導入</h3>
+          <ul>
+            <li>コンセプトの軸を定義</li>
+            <li>立地条件の整理</li>
+            <li>ターゲット層の明確化</li>
+          </ul>
+        </div>
+        <div class="brief-box">
+          <h3>設計</h3>
+          <ul>
+            <li>内装・照明・グランドデザイン</li>
+            <li>サービス導線と席の設計</li>
+            <li>メニューと価格戦略</li>
+          </ul>
+        </div>
+        <div class="brief-box">
+          <h3>運営</h3>
+          <ul>
+            <li>店舗オペレーション</li>
+            <li>スタッフ教育</li>
+            <li>販促・SNS・告知計画</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="brief-section" id="alignment">
+      <div class="brief-section-header">
+        <h2>方向性の擦り合わせ</h2>
+        <p>Alignment</p>
+      </div>
+
+      <div class="brief-matrix">
+        <div class="matrix-box">
+          <h4>1. 何を売るか</h4>
+          <p>食事そのものなのか、体験なのか、日常の特別な場なのかを揃える。</p>
+        </div>
+        <div class="matrix-box">
+          <h4>2. 誰に向けるか</h4>
+          <p>地域住民、仕事帰りの利用者、デート層、ファミリー層などを想定する。</p>
+        </div>
+        <div class="matrix-box">
+          <h4>3. どんな雰囲気か</h4>
+          <p>落ち着いた大人向け、カジュアル、創作系、贅沢寄りなどの方向性を統一する。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="brief-section" id="discussion">
+      <div class="brief-section-header">
+        <h2>協議メモ</h2>
+        <p>Discussion</p>
+      </div>
+
+      <div class="brief-box">
+        <ul>
+          <li>店舗の価値を「料理」だけでなく、空間・雰囲気・接客で伝えるかどうかを固める。</li>
+          <li>業態の方向性と予算感のバランスを合わせる。</li>
+          <li>オープン後の体験をずっと支える運営設計を前提に、導線と接客の設計を最適化する。</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+</div>
+
 <main class="page" id="app">
   <header class="hero">
     <p class="eyebrow" contenteditable="true">30-Day Launch Plan</p>
