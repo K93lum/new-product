@@ -45,363 +45,6 @@
     a { color: inherit; }
     button { font: inherit; }
 
-    .brief-shell {
-      max-width: 1160px;
-      margin: 0 auto;
-      padding: 26px 20px 40px;
-      position: relative;
-    }
-
-    .brief-shell::before,
-    .brief-hero::before,
-    .brief-section::before,
-    .brief-card::before,
-    .brief-box::before,
-    .brief-matrix .matrix-box::before {
-      content: "";
-      position: absolute;
-      border-radius: 50%;
-      background: rgba(251, 226, 26, 0.9);
-      box-shadow: 0 0 0 8px rgba(251, 226, 26, 0.09);
-      pointer-events: none;
-    }
-
-    .brief-shell::before { right: 38px; top: 22px; width: 12px; height: 12px; }
-    .brief-hero::before { right: 18px; bottom: 18px; width: 10px; height: 10px; }
-    .brief-section::before { right: 16px; top: 16px; width: 10px; height: 10px; }
-    .brief-card::before { right: 12px; bottom: 12px; width: 8px; height: 8px; box-shadow: 0 0 0 6px rgba(251, 226, 26, 0.08); }
-    .brief-box::before { left: 14px; top: 14px; width: 9px; height: 9px; box-shadow: 0 0 0 6px rgba(251, 226, 26, 0.08); }
-    .brief-matrix .matrix-box::before { right: 12px; bottom: 12px; width: 8px; height: 8px; }
-
-    .brief-topbar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      padding: 14px 18px;
-      margin-bottom: 20px;
-      background: rgba(255,255,255,0.3);
-      border: 1px solid rgba(37,53,73,0.12);
-      border-radius: 18px;
-      backdrop-filter: blur(8px);
-      position: sticky;
-      top: 10px;
-      z-index: 20;
-    }
-
-    .brief-logo {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-weight: 700;
-      letter-spacing: .08em;
-      color: var(--navy);
-      text-transform: uppercase;
-      font-size: .75rem;
-    }
-
-    .brief-logo-mark {
-      width: 30px;
-      height: 30px;
-      display: grid;
-      place-items: center;
-      color: var(--navy);
-      background: var(--mimosa);
-      border-radius: 10px;
-      font-family: var(--serif);
-      font-size: 1.2rem;
-    }
-
-    .brief-badge {
-      padding: 8px 12px;
-      border-radius: 999px;
-      background: var(--navy);
-      color: var(--white);
-      font-size: .72rem;
-      letter-spacing: .06em;
-    }
-
-    .brief-topbar-actions {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .brief-editor-button {
-      min-height: 36px;
-      padding: 0 14px;
-      border: 1px solid rgba(37,53,73,.18);
-      border-radius: 999px;
-      background: rgba(255,255,255,.6);
-      color: var(--navy);
-      cursor: pointer;
-      font-weight: 700;
-      font-size: .76rem;
-      transition: .2s ease;
-    }
-
-    .brief-editor-button.primary {
-      background: var(--mimosa);
-      border-color: transparent;
-    }
-
-    .brief-page {
-      display: grid;
-      gap: 22px;
-    }
-
-    .brief-hero {
-      position: relative;
-      display: grid;
-      grid-template-columns: 1.4fr .9fr;
-      gap: 20px;
-      padding: clamp(26px, 4vw, 42px);
-      background: linear-gradient(135deg, rgba(255,255,255,0.42), rgba(255,255,255,0.18));
-      border: 1px solid rgba(37,53,73,0.12);
-      border-radius: 26px;
-      box-shadow: 0 22px 50px rgba(37,53,73,0.08);
-    }
-
-    .eyebrow {
-      margin: 0 0 14px;
-      color: var(--navy);
-      font-family: var(--serif);
-      font-size: 1.05rem;
-      font-style: italic;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-    }
-
-    .brief-hero h1 {
-      margin: 0;
-      color: var(--navy);
-      font-family: var(--serif);
-      font-size: clamp(2.4rem, 5vw, 4.2rem);
-      line-height: .96;
-      letter-spacing: -.05em;
-    }
-
-    .brief-hero p {
-      margin: 18px 0 0;
-      color: var(--muted);
-      font-size: 1rem;
-    }
-
-    .brief-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 26px;
-    }
-
-    .brief-primary,
-    .brief-secondary {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 44px;
-      padding: 0 20px;
-      border-radius: 999px;
-      font-weight: 700;
-      text-decoration: none;
-      transition: .2s ease;
-    }
-
-    .brief-primary {
-      color: var(--navy);
-      background: var(--mimosa);
-      box-shadow: 0 10px 24px rgba(251, 226, 26, 0.28);
-    }
-
-    .brief-secondary {
-      color: var(--navy);
-      background: rgba(255,255,255,0.4);
-      border: 1px solid rgba(37,53,73,0.15);
-    }
-
-    .brief-panel {
-      position: relative;
-      display: grid;
-      gap: 12px;
-      align-content: center;
-      padding: 22px;
-      background: rgba(37,53,73,0.94);
-      border-radius: 20px;
-      color: var(--white);
-    }
-
-    .brief-panel .mini-label {
-      margin: 0;
-      color: rgba(255,255,255,0.72);
-      font-size: .7rem;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-    }
-
-    .brief-panel .mini-stat {
-      font-family: var(--serif);
-      font-size: clamp(2rem, 4vw, 2.9rem);
-      line-height: 1.05;
-      color: var(--mimosa);
-    }
-
-    .brief-panel .mini-copy {
-      margin: 0;
-      color: rgba(255,255,255,0.8);
-      font-size: .9rem;
-      line-height: 1.7;
-    }
-
-    .brief-nav {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      padding: 8px;
-      background: rgba(255,255,255,0.34);
-      border: 1px solid rgba(37,53,73,0.12);
-      border-radius: 999px;
-    }
-
-    .brief-nav a {
-      padding: 9px 16px;
-      border-radius: 999px;
-      color: var(--navy);
-      font-size: .8rem;
-      font-weight: 600;
-      text-decoration: none;
-    }
-
-    .brief-nav a:hover {
-      background: rgba(255,255,255,0.5);
-    }
-
-    .brief-section {
-      position: relative;
-      padding: clamp(22px, 3vw, 30px);
-      background: rgba(255,255,255,0.42);
-      border: 1px solid rgba(37,53,73,0.12);
-      border-radius: 24px;
-    }
-
-    .brief-section-header {
-      display: flex;
-      align-items: end;
-      justify-content: space-between;
-      gap: 12px;
-      margin-bottom: 18px;
-    }
-
-    .brief-section-header h2 {
-      margin: 0;
-      color: var(--navy);
-      font-family: var(--serif);
-      font-size: clamp(1.8rem, 3vw, 2.6rem);
-      line-height: 1.1;
-    }
-
-    .brief-section-header p {
-      margin: 0;
-      color: var(--muted);
-      font-size: .8rem;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-    }
-
-    .brief-grid {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 16px;
-    }
-
-    .brief-card {
-      position: relative;
-      padding: 20px 18px;
-      background: rgba(255,255,255,0.7);
-      border: 1px solid rgba(37,53,73,0.08);
-      border-radius: 18px;
-    }
-
-    .brief-card .index {
-      display: inline-block;
-      margin-bottom: 10px;
-      padding: 5px 8px;
-      border-radius: 999px;
-      background: rgba(251, 226, 26, 0.18);
-      color: var(--navy);
-      font-size: .7rem;
-      font-weight: 700;
-      letter-spacing: .07em;
-    }
-
-    .brief-card h3 {
-      margin: 0 0 8px;
-      color: var(--navy);
-      font-family: var(--serif);
-      font-size: 1.6rem;
-    }
-
-    .brief-card p {
-      margin: 0;
-      color: var(--muted);
-      font-size: .95rem;
-    }
-
-    .brief-summary-grid {
-      display: grid;
-      grid-template-columns: 1.1fr 1fr 1fr;
-      gap: 16px;
-    }
-
-    .brief-box {
-      position: relative;
-      padding: 20px 18px;
-      border-radius: 18px;
-      background: rgba(255,255,255,0.75);
-      border: 1px solid rgba(37,53,73,0.08);
-    }
-
-    .brief-box h3 {
-      margin: 0 0 12px;
-      color: var(--navy);
-      font-family: var(--serif);
-      font-size: 1.65rem;
-    }
-
-    .brief-box ul {
-      margin: 0;
-      padding-left: 18px;
-      color: var(--muted);
-    }
-
-    .brief-box li + li { margin-top: 8px; }
-
-    .brief-matrix {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 14px;
-    }
-
-    .brief-matrix .matrix-box {
-      position: relative;
-      padding: 18px;
-      border-radius: 16px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.82), rgba(255,255,255,0.58));
-      border: 1px solid rgba(37,53,73,0.08);
-    }
-
-    .brief-matrix h4 {
-      margin: 0 0 10px;
-      color: var(--navy);
-      font-family: var(--serif);
-      font-size: 1.5rem;
-    }
-
-    .brief-matrix p {
-      margin: 0;
-      color: var(--muted);
-      font-size: .92rem;
-    }
-
     .page {
       width: min(100% - 40px, 1040px);
       margin: 0 auto;
@@ -437,6 +80,7 @@
       font-family: var(--serif);
       font-size: 1.15rem;
       letter-spacing: .12em;
+      text-transform: uppercase;
     }
 
     h1 {
@@ -511,6 +155,8 @@
       background: var(--white);
       border: 1px solid var(--line);
       border-radius: 3px;
+      min-width: 0;
+      overflow-x: hidden;
     }
 
     .schedule-top {
@@ -568,6 +214,7 @@
       gap: 18px;
       padding: 10px 0;
       border-bottom: 1px solid var(--line);
+      min-width: 0;
     }
 
     .phase-name {
@@ -590,6 +237,8 @@
       height: 8px;
       background: repeating-linear-gradient(90deg, var(--line) 0 1px, transparent 1px 100%);
       background-size: calc(100% / 30) 100%;
+      min-width: 0;
+      width: 100%;
     }
 
     .bar {
@@ -607,6 +256,7 @@
       grid-template-columns: 190px minmax(100px, 1fr) 64px;
       gap: 18px;
       margin-top: 9px;
+      min-width: 0;
     }
 
     .timeline-axis > div:nth-child(2) {
@@ -628,6 +278,7 @@
       border: 1px solid var(--line);
       border-top: 3px solid var(--section-color);
       border-radius: 3px;
+      min-width: 0;
     }
 
     .checklist-section:nth-of-type(4n + 1) { --section-color: var(--navy); }
@@ -683,6 +334,7 @@
       gap: 5px 13px;
       padding: 11px 0;
       border-bottom: 1px solid var(--line);
+      min-width: 0;
     }
 
     .task:last-child { border-bottom: 0; }
@@ -700,14 +352,16 @@
 
     .task input[type="checkbox"]:checked {
       background: var(--section-color);
+      position: relative;
     }
 
     .task input[type="checkbox"]:checked::after {
       content: "";
-      display: block;
+      position: absolute;
+      left: 5px;
+      top: 1px;
       width: 4px;
       height: 8px;
-      margin: 2px 0 0 5px;
       border: solid var(--white);
       border-width: 0 1.5px 1.5px 0;
       transform: rotate(45deg);
@@ -716,6 +370,7 @@
     .task-text {
       min-width: 0;
       outline: none;
+      word-break: break-word;
     }
 
     .task input:checked ~ .task-text {
@@ -773,36 +428,20 @@
       letter-spacing: .03em;
     }
 
-    .footer-note {
-      margin: 34px 0 0;
-      color: var(--muted);
-      font-size: .76rem;
-      text-align: center;
-      letter-spacing: .03em;
-    }
-
     [contenteditable="true"]:focus {
       background: rgba(251, 226, 26, .12);
       outline: 1px dashed rgba(141, 113, 0, .45);
       outline-offset: 2px;
     }
 
-    @media (max-width: 1000px) {
-      .brief-hero, .brief-summary-grid, .brief-grid, .brief-matrix { grid-template-columns: 1fr 1fr; }
-      .brief-hero { grid-template-columns: 1fr; }
-    }
-
     @media (max-width: 760px) {
-      .brief-shell { padding: 16px 14px 20px; }
-      .brief-topbar, .brief-section-header { flex-direction: column; align-items: flex-start; }
-      .brief-grid, .brief-summary-grid, .brief-matrix { grid-template-columns: 1fr; }
       .page { width: min(100% - 28px, 600px); padding-top: 20px; }
       .hero { padding: 34px 26px; }
       .toolbar { margin: 16px 0 32px; }
       .schedule { padding: 24px 20px 20px; margin-bottom: 40px; }
       .schedule-top { align-items: start; flex-direction: column; gap: 7px; }
       .phase-row { grid-template-columns: 1fr auto; gap: 7px 12px; }
-      .timeline { grid-column: 1 / -1; grid-row: 2; }
+      .timeline { grid-column: 1 / -1; grid-row: 2; min-width: 210px; }
       .phase-days { grid-column: 2; grid-row: 1; }
       .timeline-axis { grid-template-columns: 1fr; }
       .timeline-axis > div:first-child, .timeline-axis > div:last-child { display: none; }
@@ -820,6 +459,7 @@
         display: flex;
         gap: 8px;
         align-items: baseline;
+        white-space: normal;
       }
       .task-when small { display: inline; }
       .delete-task { grid-column: 3; grid-row: 1; }
@@ -829,153 +469,12 @@
       body { background: #fff; }
       .page { width: 100%; padding: 0; }
       .hero { box-shadow: none; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
-      .toolbar, .add-task, .delete-task, .brief-topbar-actions { display: none !important; }
+      .toolbar, .add-task, .delete-task { display: none !important; }
       .checklist-section, .schedule { break-inside: avoid; }
     }
   </style>
 </head>
 <body>
-  <div class="brief-shell" id="top">
-    <header class="brief-topbar">
-      <div class="brief-logo">
-        <div class="brief-logo-mark">R</div>
-        <span>Restaurant Brief</span>
-      </div>
-      <div class="brief-topbar-actions">
-        <button id="editToggleBtn" type="button" class="brief-editor-button primary">編集</button>
-        <button id="saveBtn" type="button" class="brief-editor-button" style="display:none;">編集内容を保存</button>
-        <div class="brief-badge">店舗立ち上げ資料</div>
-      </div>
-    </header>
-
-    <main class="brief-page">
-      <section class="brief-hero">
-        <div>
-          <p class="eyebrow">Direction Alignment</p>
-          <h1>店舗の方向性を<br>一枚で共有する</h1>
-          <p>この資料は、店舗コンセプト・見込み顧客・提供価値・運営体制を、関係者で揃えて議論するためのフレームです。チェックリストと進行計画を同時に確認できるようにしてあります。</p>
-          <div class="brief-actions">
-            <a class="brief-primary" href="#checklist">チェックリストを見る</a>
-            <a class="brief-secondary" href="#alignment">方向性を確認</a>
-          </div>
-        </div>
-        <aside class="brief-panel">
-          <p class="mini-label">現在の整理ポイント</p>
-          <div class="mini-stat">5軸</div>
-          <p class="mini-copy">概念整理 / SKU設計 / 接客 / 立地 / オペレーションを揃えながら、店舗の訴求と体験の一貫性を整えます。</p>
-        </aside>
-      </section>
-
-      <nav class="brief-nav" aria-label="ページ内ナビゲーション">
-        <a href="#top">TOP</a>
-        <a href="#checklist">チェックリスト</a>
-        <a href="#alignment">方向性</a>
-        <a href="#discussion">協議メモ</a>
-      </nav>
-
-      <section class="brief-section" id="overview">
-        <div class="brief-section-header">
-          <h2>店舗の方向性</h2>
-          <p>Overview</p>
-        </div>
-
-        <div class="brief-grid">
-          <article class="brief-card">
-            <span class="index">01</span>
-            <h3>想定客</h3>
-            <p>誰に、どんな時間帯に、どんな価値を届けたいのかを明確にする。</p>
-          </article>
-          <article class="brief-card">
-            <span class="index">02</span>
-            <h3>価値提案</h3>
-            <p>「ただの食事」ではなく、体験として何を提供するかを整理する。</p>
-          </article>
-          <article class="brief-card">
-            <span class="index">03</span>
-            <h3>空間設計</h3>
-            <p>内装・音・照明・席の構成が、店舗の印象と体験にどう影響するかを定義する。</p>
-          </article>
-          <article class="brief-card">
-            <span class="index">04</span>
-            <h3>運営体制</h3>
-            <p>接客、回転率、スタッフ教育、仕込みに必要なルールを固める。</p>
-          </article>
-        </div>
-      </section>
-
-      <section class="brief-section" id="checklist">
-        <div class="brief-section-header">
-          <h2>チェックリスト</h2>
-          <p>Checklist</p>
-        </div>
-
-        <div class="brief-summary-grid">
-          <div class="brief-box">
-            <h3>導入</h3>
-            <ul>
-              <li>コンセプトの軸を定義</li>
-              <li>立地条件の整理</li>
-              <li>ターゲット層の明確化</li>
-            </ul>
-          </div>
-          <div class="brief-box">
-            <h3>設計</h3>
-            <ul>
-              <li>内装・照明・グランドデザイン</li>
-              <li>サービス導線と席の設計</li>
-              <li>メニューと価格戦略</li>
-            </ul>
-          </div>
-          <div class="brief-box">
-            <h3>運営</h3>
-            <ul>
-              <li>店舗オペレーション</li>
-              <li>スタッフ教育</li>
-              <li>販促・SNS・告知計画</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <section class="brief-section" id="alignment">
-        <div class="brief-section-header">
-          <h2>方向性の擦り合わせ</h2>
-          <p>Alignment</p>
-        </div>
-
-        <div class="brief-matrix">
-          <div class="matrix-box">
-            <h4>1. 何を売るか</h4>
-            <p>食事そのものなのか、体験なのか、日常の特別な場なのかを揃える。</p>
-          </div>
-          <div class="matrix-box">
-            <h4>2. 誰に向けるか</h4>
-            <p>地域住民、仕事帰りの利用者、デート層、ファミリー層などを想定する。</p>
-          </div>
-          <div class="matrix-box">
-            <h4>3. どんな雰囲気か</h4>
-            <p>落ち着いた大人向け、カジュアル、創作系、贅沢寄りなどの方向性を統一する。</p>
-          </div>
-        </div>
-      </section>
-
-      <section class="brief-section" id="discussion">
-        <div class="brief-section-header">
-          <h2>協議メモ</h2>
-          <p>Discussion</p>
-        </div>
-
-        <div class="brief-box">
-          <ul>
-            <li>店舗の価値を「料理」だけでなく、空間・雰囲気・接客で伝えるかどうかを固める。</li>
-            <li>業態の方向性と予算感のバランスを合わせる。</li>
-            <li>オープン後の体験をずっと支える運営設計を前提に、導線と接客の設計を最適化する。</li>
-          </ul>
-        </div>
-      </section>
-    </main>
-  </div>
-
   <main class="page" id="app">
     <header class="hero">
       <p class="eyebrow" contenteditable="true">30-Day Launch Plan</p>
@@ -986,12 +485,13 @@
     <div class="toolbar">
       <div class="save-state"><span class="save-dot"></span><span id="saveMessage">変更はこのブラウザに自動保存されます</span></div>
       <div class="actions">
+        <button class="action-btn" type="button" id="historyBtn">履歴を戻す</button>
         <button class="action-btn" type="button" id="printButton">印刷する</button>
         <button class="action-btn" type="button" id="resetButton">初期状態に戻す</button>
       </div>
     </div>
 
-    <div class="schedule">
+    <section class="schedule">
       <div class="schedule-top">
         <h2 contenteditable="true">Schedule at a glance</h2>
         <div class="progress-copy"><strong id="progressCount">0 / 23</strong> タスク完了</div>
@@ -1001,44 +501,64 @@
 
       <div class="phase-row">
         <div class="phase-name" contenteditable="true">Phase 1 Contract</div>
-        <div class="timeline"><div class="bar navy" style="--start:1;--end:6"></div></div>
+        <div class="timeline">
+          <div class="bar navy" style="--start:1; --end:6"></div>
+        </div>
         <div class="phase-days" contenteditable="true">5 days</div>
       </div>
+
       <div class="phase-row">
         <div class="phase-name" contenteditable="true">Phase 2 Construction</div>
-        <div class="timeline"><div class="bar espresso" style="--start:6;--end:17"></div></div>
+        <div class="timeline">
+          <div class="bar espresso" style="--start:6; --end:17"></div>
+        </div>
         <div class="phase-days" contenteditable="true">11 days</div>
       </div>
+
       <div class="phase-row">
         <div class="phase-name" contenteditable="true">Phase 3 Permits</div>
-        <div class="timeline"><div class="bar gold" style="--start:11;--end:20"></div></div>
+        <div class="timeline">
+          <div class="bar gold" style="--start:11; --end:20"></div>
+        </div>
         <div class="phase-days" contenteditable="true">9 days</div>
       </div>
+
       <div class="phase-row">
-        <div class="phase-name" contenteditable="true">Phase 4 Staff &amp; Promo</div>
-        <div class="timeline"><div class="bar navy" style="--start:17;--end:27"></div></div>
+        <div class="phase-name" contenteditable="true">Phase 4 Staffing & Promo</div>
+        <div class="timeline">
+          <div class="bar navy" style="--start:17; --end:27"></div>
+        </div>
         <div class="phase-days" contenteditable="true">10 days</div>
       </div>
+
       <div class="phase-row">
         <div class="phase-name" contenteditable="true">Phase 5 Final Check</div>
-        <div class="timeline"><div class="bar espresso" style="--start:24;--end:30"></div></div>
+        <div class="timeline">
+          <div class="bar espresso" style="--start:24; --end:30"></div>
+        </div>
         <div class="phase-days" contenteditable="true">8 days</div>
       </div>
-      <div class="timeline-axis"><div></div><div><span>D-30</span><span>D-20</span><span>D-10</span><span>D-0 Open</span></div><div></div></div>
-    </div>
+
+      <div class="timeline-axis">
+        <div></div>
+        <div><span>D-30</span><span>D-20</span><span>D-10</span><span>D-0 Open</span></div>
+        <div></div>
+      </div>
+    </section>
 
     <section class="checklist-section">
       <div class="section-heading">
         <p class="phase-label" contenteditable="true">Phase 1</p>
-        <h3 contenteditable="true">Contract &amp;<br>Pre-Construction</h3>
-        <p class="section-ja" contenteditable="true">契約直後〜内装着工前</p>
-        <p class="section-term" contenteditable="true">D-30 – D-26 · 5 days</p>
+        <h3 contenteditable="true">Contract &<br>Pre-Construction</h3>
+        <p class="section-ja" contenteditable="true">物件契約・着工準備</p>
+        <p class="section-term" contenteditable="true">D-30 ～ D-26 ・ 5 days</p>
       </div>
       <div>
         <ul class="task-list">
-          <li class="task"><input type="checkbox"><span class="task-text" contenteditable="true">内装・外装工事の業者選定と詳細見積もりの依頼、工事請負契約の締結</span><span class="task-when" contenteditable="true">D-30<small>Start</small></span><button class="delete-task" type="button" aria-label="タスクを削除">×</button></li>
-          <li class="task"><input type="checkbox"><span class="task-text" contenteditable="true">店舗デザイン、レイアウト、設備配置の最終決定</span><span class="task-when" contenteditable="true">D-28<small>Design</small></span><button class="delete-task" type="button" aria-label="タスクを削除">×</button></li>
-          <li class="task"><input type="checkbox"><span class="task-text" contenteditable="true">電気、ガス、水道、インターネットなどのインフラ契約および引き込み手続</span><span class="task-when" contenteditable="true">D-27<small>Utility</small></span><button class="delete-task" type="button" aria-label="タスクを削除">×</button></li>
+          <li class="task"><input type="checkbox"><span class="task-text" contenteditable="true">物件契約を締結する</span><span class="task-when" contenteditable="true">D-30<small>Start</small></span><button class="delete-task" type="button" aria-label="削除">×</button></li>
+          <li class="task"><input type="checkbox"><span class="task-text" contenteditable="true">設計条件とレイアウトを確認する</span><span class="task-when" contenteditable="true">D-28<small>Design</small></span><button class="delete-task" type="button" aria-label="削除">×</button></li>
+          <li class="task"><input type="checkbox"><span class="task-text" contenteditable="true">施工スケジュールと業者を最終確認する</span><span class="task-when" contenteditable="true">D-27<small>Utility</small></span><button class="delete-task" type="button" aria-label="削除">×</button></li>
+          <li class="task"><input type="checkbox"><span class="task-text" contenteditable="true">工事着工の許可状況を確認する</span><span class="task-when" contenteditable="true">D-26<small>Permit</small></span><button class="delete-task" type="button" aria-label="削除">×</button></li>
         </ul>
         <button class="add-task" type="button">＋ タスクを追加</button>
       </div>
@@ -1048,16 +568,16 @@
       <div class="section-heading">
         <p class="phase-label" contenteditable="true">Phase 2</p>
         <h3 contenteditable="true">Construction</h3>
-        <p class="section-ja" contenteditable="true">工事期間中</p>
-        <p class="section-term" contenteditable="true">D-25 – D-15 · 11 days</p>
+        <p class="section-ja" contenteditable="true">内装工事・設備工事</p>
+        <p class="section-term" contenteditable="true">D-25 ～ D-15 ・ 11 days</p>
       </div>
       <div>
         <ul class="task-list">
-          <li class="task"><input type="checkbox"><span class="task-text" contenteditable="true">内装工事の着工および定期的な進捗確認</span><span class="task-when" contenteditable="true">D-25<small>Start</small></span><button class="delete-task" type="button" aria-label="タスクを削除">×</button></li>
-          <li class="task"><input type="checkbox"><span class="task-text" contenteditable="true">食品衛生責任者の資格取得（未取得の場合）</span><span class="task-when" contenteditable="true">D-22<small>License</small></span><button class="delete-task" type="button" aria-label="タスクを削除">×</button></li>
-          <li class="task"><input type="checkbox"><span class="task-text" contenteditable="true">保健所への飲食店営業許可の事前相談</span><span class="task-when" contenteditable="true">D-21<small>Consult</small></span><button class="delete-task" type="button" aria-label="タスクを削除">×</button></li>
-          <li class="task"><input type="checkbox"><span class="task-text" contenteditable="true">消防署への防火対象物使用開始届の提出</span><span class="task-when" contenteditable="true">D-18<small>Notify</small></span><button class="delete-task" type="button" aria-label="タスクを削除">×</button></li>
-          <li class="task"><input type="checkbox"><span class="task-text" contenteditable="true">深夜における酒類提供を行う場合の警察署への深夜酒類提供飲食店営業届提出</span><span class="task-when" contenteditable="true">D-16<small>Permit</small></span><button class="delete-task" type="button" aria-label="タスクを削除">×</button></li>
+          <li class="task"><input type="checkbox"><span class="task-text" contenteditable="true">工事着工を開始する</span><span class="task-when" contenteditable="true">D-25<small>Start</small></span><button class="delete-task" type="button" aria-label="削除">×</button></li>
+          <li class="task"><input type="checkbox"><span class="task-text" contenteditable="true">電気・ガス・給排水の手配を進める</span><span class="task-when" contenteditable="true">D-22<small>License</small></span><button class="delete-task" type="button" aria-label="削除">×</button></li>
+          <li class="task"><input type="checkbox"><span class="task-text" contenteditable="true">内装・設備の導入を進める</span><span class="task-when" contenteditable="true">D-21<small>Consult</small></span><button class="delete-task" type="button" aria-label="削除">×</button></li>
+          <li class="task"><input type="checkbox"><span class="task-text" contenteditable="true">施工中の進捗確認と調整を行う</span><span class="task-when" contenteditable="true">D-18<small>Notify</small></span><button class="delete-task" type="button" aria-label="削除">×</button></li>
+          <li class="task"><input type="checkbox"><span class="task-text" contenteditable="true">未解決項目のリストを確認する</span><span class="task-when" contenteditable="true">D-16<small>Permit</small></span><button class="delete-task" type="button" aria-label="削除">×</button></li>
         </ul>
         <button class="add-task" type="button">＋ タスクを追加</button>
       </div>
@@ -1066,17 +586,17 @@
     <section class="checklist-section">
       <div class="section-heading">
         <p class="phase-label" contenteditable="true">Phase 3</p>
-        <h3 contenteditable="true">Permits &amp;<br>Procurement</h3>
-        <p class="section-ja" contenteditable="true">許認可・調達準備期間</p>
-        <p class="section-term" contenteditable="true">D-20 – D-12 · 9 days</p>
+        <h3 contenteditable="true">Permits &<br>Procurement</h3>
+        <p class="section-ja" contenteditable="true">申請・仕入・備品準備</p>
+        <p class="section-term" contenteditable="true">D-20 ～ D-12 ・ 9 days</p>
       </div>
       <div>
         <ul class="task-list">
-          <li class="task"><input type="checkbox"><span class="task-text" contenteditable="true">保健所への飲食店営業許可申請書類の提出</span><span class="task-when" contenteditable="true">D-20<small>Submit</small></span><button class="delete-task" type="button" aria-label="タスクを削除">×</button></li>
-          <li class="task"><input type="checkbox"><span class="task-text" contenteditable="true">調理器具、食器、厨房機器、テーブルウェア、POSレジ、制服、消耗品の購入</span><span class="task-when" contenteditable="true">D-18<small>Order</small></span><button class="delete-task" type="button" aria-label="タスクを削除">×</button></li>
-          <li class="task"><input type="checkbox"><span class="task-text" contenteditable="true">食材、飲料、酒類の卸業者選定と発注契約</span><span class="task-when" contenteditable="true">D-17<small>Vendor</small></span><button class="delete-task" type="button" aria-label="タスクを削除">×</button></li>
-          <li class="task"><input type="checkbox"><span class="task-text" contenteditable="true">メニュー内容の確定、原価計算、レシピの固定</span><span class="task-when" contenteditable="true">D-15<small>Menu</small></span><button class="delete-task" type="button" aria-label="タスクを削除">×</button></li>
-          <li class="task"><input type="checkbox"><span class="task-text" contenteditable="true">火災保険、賠償責任保険などの各種損害保険への加入手続</span><span class="task-when" contenteditable="true">D-13<small>Insurance</small></span><button class="delete-task" type="button" aria-label="タスクを削除">×</button></li>
+          <li class="task"><input type="checkbox"><span class="task-text" contenteditable="true">必要許可と申請書類を提出する</span><span class="task-when" contenteditable="true">D-20<small>Submit</small></span><button class="delete-task" type="button" aria-label="削除">×</button></li>
+          <li class="task"><input type="checkbox"><span class="task-text" contenteditable="true">厨房設備の購入と納期確認を行う</span><span class="task-when" contenteditable="true">D-18<small>Order</small></span><button class="delete-task" type="button" aria-label="削除">×</button></li>
+          <li class="task"><input type="checkbox"><span class="task-text" contenteditable="true">テーブル・チェア・照明類を選定する</span><span class="task-when" contenteditable="true">D-17<small>Vendor</small></span><button class="delete-task" type="button" aria-label="削除">×</button></li>
+          <li class="task"><input type="checkbox"><span class="task-text" contenteditable="true">メニュープロダクトの仕入れを確定する</span><span class="task-when" contenteditable="true">D-15<small>Menu</small></span><button class="delete-task" type="button" aria-label="削除">×</button></li>
+          <li class="task"><input type="checkbox"><span class="task-text" contenteditable="true">保険と補償を確認する</span><span class="task-when" contenteditable="true">D-13<small>Insurance</small></span><button class="delete-task" type="button" aria-label="削除">×</button></li>
         </ul>
         <button class="add-task" type="button">＋ タスクを追加</button>
       </div>
@@ -1085,16 +605,16 @@
     <section class="checklist-section">
       <div class="section-heading">
         <p class="phase-label" contenteditable="true">Phase 4</p>
-        <h3 contenteditable="true">Staffing &amp;<br>Promotion</h3>
-        <p class="section-ja" contenteditable="true">スタッフ採用・販促期間</p>
-        <p class="section-term" contenteditable="true">D-14 – D-5 · 10 days</p>
+        <h3 contenteditable="true">Staffing &<br>Promotion</h3>
+        <p class="section-ja" contenteditable="true">スタッフ採用・販促準備</p>
+        <p class="section-term" contenteditable="true">D-14 ～ D-5 ・ 10 days</p>
       </div>
       <div>
         <ul class="task-list">
-          <li class="task"><input type="checkbox"><span class="task-text" contenteditable="true">スタッフの募集、面接、採用手続</span><span class="task-when" contenteditable="true">D-14<small>Hiring</small></span><button class="delete-task" type="button" aria-label="タスクを削除">×</button></li>
-          <li class="task"><input type="checkbox"><span class="task-text" contenteditable="true">採用スタッフに対する接客マニュアル共有や調理トレーニングの実施</span><span class="task-when" contenteditable="true">D-11<small>Training</small></span><button class="delete-task" type="button" aria-label="タスクを削除">×</button></li>
-          <li class="task"><input type="checkbox"><span class="task-text" contenteditable="true">看板、外観サインの設置完了</span><span class="task-when" contenteditable="true">D-14<small>Signage</small></span><button class="delete-task" type="button" aria-label="タスクを削除">×</button></li>
-          <li class="task"><input type="checkbox"><span class="task-text" contenteditable="true">チラシ、ショップカードの印刷、ホームページやSNSアカウントの開設および告知開始</span><span class="task-when" contenteditable="true">D-9<small>Promo</small></span><button class="delete-task" type="button" aria-label="タスクを削除">×</button></li>
+          <li class="task"><input type="checkbox"><span class="task-text" contenteditable="true">求人票を作成し応募を開始する</span><span class="task-when" contenteditable="true">D-14<small>Hiring</small></span><button class="delete-task" type="button" aria-label="削除">×</button></li>
+          <li class="task"><input type="checkbox"><span class="task-text" contenteditable="true">研修計画とシフトの設計を行う</span><span class="task-when" contenteditable="true">D-11<small>Training</small></span><button class="delete-task" type="button" aria-label="削除">×</button></li>
+          <li class="task"><input type="checkbox"><span class="task-text" contenteditable="true">SNS・告知ネタを準備する</span><span class="task-when" contenteditable="true">D-14<small>Signage</small></span><button class="delete-task" type="button" aria-label="削除">×</button></li>
+          <li class="task"><input type="checkbox"><span class="task-text" contenteditable="true">オープンイベントの企画を決める</span><span class="task-when" contenteditable="true">D-9<small>Promo</small></span><button class="delete-task" type="button" aria-label="削除">×</button></li>
         </ul>
         <button class="add-task" type="button">＋ タスクを追加</button>
       </div>
@@ -1103,119 +623,162 @@
     <section class="checklist-section">
       <div class="section-heading">
         <p class="phase-label" contenteditable="true">Phase 5</p>
-        <h3 contenteditable="true">Final Check &amp;<br>Pre-Open</h3>
-        <p class="section-ja" contenteditable="true">最終確認・プレオープン期</p>
-        <p class="section-term" contenteditable="true">D-7 – D-0 · 8 days</p>
+        <h3 contenteditable="true">Final Check &<br>Pre-Open</h3>
+        <p class="section-ja" contenteditable="true">最終確認・オープン準備</p>
+        <p class="section-term" contenteditable="true">D-7 ～ D-0 ・ 8 days</p>
       </div>
       <div>
         <ul class="task-list">
-          <li class="task"><input type="checkbox"><span class="task-text" contenteditable="true">保健所による現地検査の実施と営業許可書の受領</span><span class="task-when" contenteditable="true">D-7<small>Inspection</small></span><button class="delete-task" type="button" aria-label="タスクを削除">×</button></li>
-          <li class="task"><input type="checkbox"><span class="task-text" contenteditable="true">消防署による現地検査の実施</span><span class="task-when" contenteditable="true">D-6<small>Check</small></span><button class="delete-task" type="button" aria-label="タスクを削除">×</button></li>
-          <li class="task"><input type="checkbox"><span class="task-text" contenteditable="true">プレオープン（知人や近隣住民を招待したオペレーション確認・リハーサル）</span><span class="task-when" contenteditable="true">D-4<small>Preview</small></span><button class="delete-task" type="button" aria-label="タスクを削除">×</button></li>
-          <li class="task"><input type="checkbox"><span class="task-text" contenteditable="true">プレオープンで得た課題の修正、オペレーションの最終調整</span><span class="task-when" contenteditable="true">D-3<small>Adjust</small></span><button class="delete-task" type="button" aria-label="タスクを削除">×</button></li>
-          <li class="task"><input type="checkbox"><span class="task-text" contenteditable="true">スタッフのシフト作成および最終確認</span><span class="task-when" contenteditable="true">D-1<small>Roster</small></span><button class="delete-task" type="button" aria-label="タスクを削除">×</button></li>
-          <li class="task"><input type="checkbox"><span class="task-text" contenteditable="true">開店当日を迎える</span><span class="task-when" contenteditable="true">D-0<small>Open</small></span><button class="delete-task" type="button" aria-label="タスクを削除">×</button></li>
+          <li class="task"><input type="checkbox"><span class="task-text" contenteditable="true">最終的な安全・点検を実施する</span><span class="task-when" contenteditable="true">D-7<small>Inspection</small></span><button class="delete-task" type="button" aria-label="削除">×</button></li>
+          <li class="task"><input type="checkbox"><span class="task-text" contenteditable="true">オープン準備のリハーサルを行う</span><span class="task-when" contenteditable="true">D-6<small>Check</small></span><button class="delete-task" type="button" aria-label="削除">×</button></li>
+          <li class="task"><input type="checkbox"><span class="task-text" contenteditable="true">スタッフの最終確認と役割を整理する</span><span class="task-when" contenteditable="true">D-4<small>Preview</small></span><button class="delete-task" type="button" aria-label="削除">×</button></li>
+          <li class="task"><input type="checkbox"><span class="task-text" contenteditable="true">最終調整とオープン準備を完了する</span><span class="task-when" contenteditable="true">D-3<small>Adjust</small></span><button class="delete-task" type="button" aria-label="削除">×</button></li>
+          <li class="task"><input type="checkbox"><span class="task-text" contenteditable="true">オープン当日を迎える</span><span class="task-when" contenteditable="true">D-0<small>Open</small></span><button class="delete-task" type="button" aria-label="削除">×</button></li>
         </ul>
         <button class="add-task" type="button">＋ タスクを追加</button>
       </div>
     </section>
-
-    <p class="footer-note">テキストをクリックして編集できます。進捗と編集内容はこのブラウザに保存されます。</p>
   </main>
 
   <script>
-    (() => {
-      const app = document.getElementById("app");
-      const storageKey = "restaurant-opening-checklist-v2";
-      const initialContent = app.innerHTML;
+    const STORAGE_KEY = 'restaurant-opening-checklist-v2';
+    const HISTORY_KEY = 'restaurant-opening-checklist-history-v2';
+    const app = document.getElementById('app');
 
-      try {
-        const savedContent = localStorage.getItem(storageKey);
-        if (savedContent) {
-          app.innerHTML = savedContent;
-        }
-      } catch (error) {
-        console.warn("保存データを読み込めませんでした。", error);
+    function updateProgress() {
+      const checkboxes = [...document.querySelectorAll('.task input[type="checkbox"]')];
+      const done = checkboxes.filter((box) => box.checked).length;
+      const total = checkboxes.length || 1;
+      const countEl = document.getElementById('progressCount');
+      const fillEl = document.getElementById('progressFill');
+
+      if (countEl) {
+        countEl.textContent = `${done} / ${total}`;
       }
 
-      const save = () => {
-        try {
-          localStorage.setItem(storageKey, app.innerHTML);
-          const message = document.getElementById("saveMessage");
-          if (message) message.textContent = "変更を保存しました";
-        } catch (error) {
-          console.warn("変更を保存できませんでした。", error);
-        }
-        updateProgress();
-      };
+      if (fillEl) {
+        fillEl.style.width = `${(done / total) * 100}%`;
+      }
+    }
 
-      const updateProgress = () => {
-        const boxes = [...app.querySelectorAll('.task input[type="checkbox"]')];
-        const done = boxes.filter(box => box.checked).length;
-        const count = document.getElementById("progressCount");
-        const fill = document.getElementById("progressFill");
+    function saveHistory() {
+      const history = JSON.parse(localStorage.getItem(HISTORY_KEY) || '[]');
+      const snapshot = { html: app.innerHTML, savedAt: new Date().toISOString() };
+      history.push(snapshot);
+      if (history.length > 10) history.shift();
+      localStorage.setItem(HISTORY_KEY, JSON.stringify(history));
+    }
 
-        if (count) count.textContent = `${done} / ${boxes.length}`;
-        if (fill) fill.style.width = boxes.length ? `${done / boxes.length * 100}%` : "0%";
-      };
-
-      app.addEventListener("input", event => {
-        if (event.target.isContentEditable) save();
-      });
-
-      app.addEventListener("change", event => {
-        if (event.target.matches('input[type="checkbox"]')) save();
-      });
-
-      app.addEventListener("click", event => {
-        const addButton = event.target.closest(".add-task");
-        if (addButton) {
-          const list = addButton.previousElementSibling;
-          const item = document.createElement("li");
-          item.className = "task";
-          item.innerHTML = `
-            <input type="checkbox">
-            <span class="task-text" contenteditable="true">新しいタスクを入力</span>
-            <span class="task-when" contenteditable="true">日程を入力<small>期間</small></span>
-            <button class="delete-task" type="button" aria-label="タスクを削除">×</button>
-          `;
-          list.appendChild(item);
-          save();
-          item.querySelector(".task-text").focus();
-          return;
-        }
-
-        const deleteButton = event.target.closest(".delete-task");
-        if (deleteButton) {
-          deleteButton.closest(".task").remove();
-          save();
-          return;
-        }
-
-        if (event.target.closest("#printButton")) {
-          window.print();
-          return;
-        }
-
-        if (event.target.closest("#resetButton")) {
-          if (confirm("チェック状態と編集内容を初期状態に戻します。よろしいですか？")) {
-            localStorage.removeItem(storageKey);
-            app.innerHTML = initialContent;
-            updateProgress();
-          }
-        }
-      });
-
+    function saveState() {
+      const state = { html: app.innerHTML, updatedAt: new Date().toISOString() };
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+      saveHistory();
+      const label = document.getElementById('saveMessage');
+      if (label) {
+        label.textContent = '保存しました ' + new Date().toLocaleTimeString('ja-JP', { hour: '2-digit', minute: '2-digit' });
+      }
       updateProgress();
-    })();
+    }
+
+    function loadState() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if (!raw) return false;
+        const state = JSON.parse(raw);
+        if (state && state.html) {
+          app.innerHTML = state.html;
+          bindEvents();
+          updateProgress();
+          return true;
+        }
+      } catch (error) {
+        console.warn('保存済み状態の読み込みに失敗しました', error);
+      }
+      return false;
+    }
+
+    function restoreHistory() {
+      try {
+        const history = JSON.parse(localStorage.getItem(HISTORY_KEY) || '[]');
+        if (!history.length) {
+          alert('戻せる履歴がまだありません。');
+          return;
+        }
+
+        const previous = history[history.length - 2] || history[0];
+        if (!previous) return;
+
+        app.innerHTML = previous.html;
+        bindEvents();
+        updateProgress();
+        const label = document.getElementById('saveMessage');
+        if (label) label.textContent = '履歴を戻しました';
+        localStorage.setItem(STORAGE_KEY, JSON.stringify({ html: app.innerHTML, updatedAt: new Date().toISOString() }));
+      } catch (error) {
+        console.warn('履歴の復元に失敗しました', error);
+      }
+    }
+
+    function bindEvents() {
+      document.getElementById('printButton')?.addEventListener('click', () => window.print());
+
+      document.getElementById('resetButton')?.addEventListener('click', () => {
+        if (confirm('初期状態に戻しますか？')) {
+          localStorage.removeItem(STORAGE_KEY);
+          localStorage.removeItem(HISTORY_KEY);
+          window.location.reload();
+        }
+      });
+
+      document.getElementById('historyBtn')?.addEventListener('click', () => {
+        restoreHistory();
+      });
+
+      document.querySelectorAll('.task input[type="checkbox"]').forEach((box) => {
+        box.addEventListener('change', () => {
+          updateProgress();
+          saveState();
+        });
+      });
+
+      document.querySelectorAll('.task-text, .task-when, .phase-name, .phase-label, .section-heading h3, .section-ja, .section-term, .schedule-note, .eyebrow, h1, .subtitle, .schedule h2, .progress-copy strong').forEach((el) => {
+        el.addEventListener('input', () => {
+          saveState();
+        });
+      });
+
+      document.querySelectorAll('.delete-task').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          btn.closest('.task')?.remove();
+          updateProgress();
+          saveState();
+        });
+      });
+
+      document.querySelectorAll('.add-task').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const item = document.createElement('li');
+          item.className = 'task';
+          item.innerHTML = '<input type="checkbox"><span class="task-text" contenteditable="true">新しいタスク</span><span class="task-when" contenteditable="true">D-0<small>New</small></span><button class="delete-task" type="button" aria-label="削除">×</button>';
+          btn.previousElementSibling?.appendChild(item);
+          bindEvents();
+          updateProgress();
+          saveState();
+        });
+      });
+    }
+
+    function init() {
+      const loaded = loadState();
+      if (!loaded) {
+        updateProgress();
+      }
+      bindEvents();
+      updateProgress();
+      window.addEventListener('beforeunload', () => saveState());
+    }
+
+    init();
   </script>
-
-  <!-- ここに、以下のブロックを追加 -->
-<section class="launch-table-append" aria-label="CAFE BAR LAUNCH TIME TABLE">
-  ...
-</section>
-
-</body>
-</html>
 </body>
 </html>
